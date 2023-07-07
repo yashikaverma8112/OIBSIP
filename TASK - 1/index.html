@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Calculator</title>
+</head>
+<style>
+    body{
+    background-color: rgb(228, 182, 228);
+    opacity:3;
+
+}
+
+.welcome{
+    margin: 20px ;
+    font-size:45px ; color: brown; 
+    text-align: center;
+
+ }
+ .image{
+    margin-top: 8px;
+   
+    
+ }
+.container{
+   text-align:center;
+   margin-bottom: 84px;
+   flex-direction: column;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+table{
+    margin: auto;
+}
+input{
+    border-radius: 8px;
+    border: 3px solid black;
+    font-size: 30px;
+    margin-bottom: 12px;
+    width: 422px;
+    height: 64px;
+    padding: 3px;
+}
+button{
+    
+    border-radius: 8px;
+    font-size: 35px;
+    background-color: antiquewhite;
+    width:105px;
+    height: 75px;
+    
+}
+.calculator{
+    padding: 0px;
+    display: inline;
+  
+}
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4,0fr);
+    grid-gap: 5px;
+    
+   
+}
+</style>
+<body  >
+    <marquee class="welcome" >WELCOME!!... FREE ONLINE CALCULATOR IS AVAILABLE</marquee><br>
+ 
+    <div class="container">
+
+        <h1>Here Is Your Calculator</h1>
+       
+      <div class="calculator">
+        <input type="text" name="screen" id="screen">
+     
+      
+    </div>
+    <div class="buttons">
+
+    <button>(</button>
+    <button>)</button>
+    <button>C</button>
+    <button>% </button>
+ 
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>X</button>
+
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>-</button>
+ 
+
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>+</button>
+    
+    <button>0</button>
+    <button>.</button>
+    <button>/</button>
+    <button>= </button>
+</div>
+    </div>
+</body>
+<script>
+    let screen= document.getElementById('screen');
+buttons = document.querySelectorAll('button');
+let screenValue='';
+for(item of buttons){
+    item.addEventListener('click',(e)=>{
+  
+        buttonText=e.target.innerText;
+        console.log('Button text is', buttonText);
+        if(buttonText=='X'){
+            buttonText ='*';
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+        else if (buttonText=='C')
+        { screenValue = "";
+            screen.value =screenValue; 
+        }
+        else if (buttonText =='='){
+            screen.value =eval(screenValue);
+
+        }
+        else{
+            screenValue += buttonText;
+            screen.value= screenValue;
+        }
+
+    })
+}
+</script>
+</html>
